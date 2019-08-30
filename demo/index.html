@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Insticator Session Demo</title>
+    <script src="/dist/insticator-session.min.js"></script>
+  </head>
+  <body>
+    <button id="getSession">Get Session</button>
+    <button id="showCookie">Show Cookie</button>
+    <button id="expireCookie">Expire Cookie</button>
+    <p id="displayCookie"></p>
+    <p id="displaySession"></p>
+    <script>
+      var getSessionButton = document.getElementById('getSession')
+      var showCookieButton = document.getElementById('showCookie')
+      var expireCookieButton = document.getElementById('expireCookie')
+      var displaySession = document.getElementById('displaySession')
+      var displayCookie = document.getElementById('displayCookie')
+
+      getSessionButton.addEventListener('click', function () {
+        var session = InsticatorSession.getSession()
+        session.expiration = session.expiration.toLocaleString()
+        displaySession.innerHTML += '<br/>' + JSON.stringify(session, null, 2)
+      })
+      showCookieButton.addEventListener('click', function () {
+        displayCookie.textContent = document.cookie
+      })
+      expireCookieButton.addEventListener('click', function () {
+        document.cookie = 'insticator_session=;domain=' + location.hostname + ';path=/;expires=' + new Date(0).toUTCString()
+        displayCookie.textContent = ''
+      })
+    </script>
+  </body>
+</html>

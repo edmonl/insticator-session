@@ -1,4 +1,12 @@
-(function() {
+(function(name, definition) {
+  if (typeof module !== 'undefined') {
+    module.exports = definition()
+    Object.defineProperty(module.exports, '__esModule', { value: true })
+  } else {
+    this[name] = definition()
+  }
+}('InsticatorSession', function() {
+  'use strict'
 
   const document = window.document
   const location = window.location
@@ -13,15 +21,6 @@
   const sessionCookieValuePattern = new RegExp('(?:^|;)\\s*' + sessionCookieKey + '\\s*=\\s*([^;]*)')
 
   const campaignKey = 'campaign'
-
-  if (typeof module !== 'undefined' && module != null && module.exports) {
-    Object.defineProperty(exports, '__esModule', {
-      value: true
-    })
-    exports.getSession = getSession
-  } else {
-    window.InsticatorSession = { getSession }
-  }
 
   function getSession() {
     let session = getSessionInCookie()
@@ -107,4 +106,5 @@
     return (Math.floor(Math.random() * 26) + 10).toString(36) + Math.floor(Math.random() * 1e15).toString(36)
   }
 
-})()
+  return { getSession }
+}))
