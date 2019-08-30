@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint *.js src test",
     "test": "jest",
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "start": "npm run build",
+    "build": "mkdir -p dist && babel src | terser --config-file terser.conf.json --output dist/insticator-session.min.js"
   },
   "repository": {
     "type": "git",
@@ -29,15 +29,12 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
     "eslint": "^6.2.2",
     "jest": "^24.9.0",
     "jest-environment-jsdom-fifteen": "^1.0.0",
     "mockdate": "^2.0.5",
     "moment": "^2.24.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
-    "webpack-merge": "^4.2.2"
+    "terser": "^4.2.1"
   },
   "dependencies": {
     "core-js": "^3.2.1"

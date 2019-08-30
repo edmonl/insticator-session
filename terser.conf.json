@@ -1,0 +1,7 @@
+{
+  "parse": {
+    "html5_comments": false,
+    "shebang": false
+  },
+  "toplevel": true
+}
