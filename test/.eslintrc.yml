@@ -1,0 +1,4 @@
+root: false
+env:
+  browser: true
+  jest: true
