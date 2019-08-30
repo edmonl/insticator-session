@@ -2,9 +2,9 @@
 
 ## Build and Run
 
-Run `npm run build` to build the project. Output is in `/dist`.
+Run `npm run build` to build the project. Output is in `dist`.
 
-Run `npm run demo` to launch a simple demo of showing sessions and cookies.
+Run `npm run demo` and navigate to `/demo` to launch a simple demo of showing sessions and cookies.
 
 Run `npm test` to unit test.
 
