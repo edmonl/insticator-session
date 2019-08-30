@@ -1,6 +1,6 @@
 import MockDate from 'mockdate'
 import moment from 'moment'
-import { getSession } from '../src/insticator-session'
+import { getSession } from '../src'
 
 describe('Session', () => {
   function mockDate(date) {

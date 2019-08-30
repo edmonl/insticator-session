@@ -1,9 +1,6 @@
 const defaultConfig = {
   presets: [
-    ['@babel/preset-env', { useBuiltIns: 'entry', corejs: 3 }],
-  ],
-  plugins: [
-    ['@babel/plugin-transform-runtime', { useESModules: true }],
+    ['@babel/preset-env'],
   ],
 }
 
@@ -14,8 +11,6 @@ const testConfig = {
         targets: {
           node: 'current',
         },
-        useBuiltIns: 'usage',
-        corejs: 3,
       },
     ],
   ],

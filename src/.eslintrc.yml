@@ -1,4 +1,3 @@
 root: false
 env:
-  node: false
   browser: true
