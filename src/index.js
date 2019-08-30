@@ -14,12 +14,13 @@
   // Must be a valid javascript identifier
   const sessionCookieKey = 'insticator_session'
 
-  // Change this to set cookie for a different domain, i.e. to set a 3rd party cookie
+  // Assume session is available for subdomains
   const sessionCookieDomain = location.hostname
 
   // The 1st group should be the cookie value
   const sessionCookieValuePattern = new RegExp('(?:^|;)\\s*' + sessionCookieKey + '\\s*=\\s*([^;]*)')
 
+  // Must be a valid javascript identifier
   const campaignKey = 'campaign'
 
   function getSession() {
@@ -48,7 +49,7 @@
         break
       }
     }
-    return campaignPart
+    return decodeURIComponent(campaignPart)
   }
 
   function getSessionInCookie() {

@@ -108,10 +108,10 @@ describe('Session', () => {
 
     t.add(1, 'minutes')
     mockDate(t)
-    window.history.replaceState({}, '', window.location.pathname + '?campaign=campaign2')
+    window.history.replaceState({}, '', window.location.pathname + '?campaign=campaign%202%263')
     const session2 = getSession()
     expect(session2.id).not.toBe(session1.id)
-    expect(session2.campaign).toBe('campaign2')
+    expect(session2.campaign).toBe('campaign 2&3')
     expect(session2.expiration).toEqual(moment(t).add(30, 'minutes').toDate())
 
     t.add(1, 'minutes')
